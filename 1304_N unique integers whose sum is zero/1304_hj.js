@@ -40,6 +40,8 @@ const is_success = (output) => {
     }
     return s == 0;
 };
+
+
 const normal = (output, expect_out) => output == expect_out;
 
 const test = (func, test_arr, test_func=normal) => {
