@@ -22,22 +22,42 @@
 // 先把上面 n - 1 个盘子从 A 移到 B（子问题，递归）；
 // 再将最大的盘子从 A 移到 C；
 // 再将 B 上 n - 1 个盘子从 B 移到 C（子问题，递归）
-
 var hanota = function(A, B, C) {
-    return move(A, B, C);
+    return move(A.length, A, B, C);
 };
 
-var move = function(a, b, c){//将n个盘子从a通过b移到c
-    if(a.length == 1){
+var move = function(n, a, b, c){//将n个盘子从a通过b移到c
+    if(n == 1){
         c.push(a.pop());
     }
     else{
-        let temp = a.shift;
-        move(a, c, b);
-        c.push(temp);
-        move(b, a, c);
+        move(n-1, a, c, b);
+        c.push(a.pop());
+        move(n-1, b, a, c);
     }
     return c;
 }
 console.log(hanota([2, 1, 0], [], []));
 console.log(hanota([1, 0], [], []));
+
+// `````
+//A 1 
+//B 0
+//c 
+// `````
+
+// move0
+//     A -> a0 ; B -> b0; C -> c0
+
+//     move1
+//         a0|A -> a1; c0|C -> b1; b0|B -> c1
+
+//     move2
+//         b0|B -> a2; a0|A -> b2; c0|C -> c2
+
+
+
+
+
+
+
