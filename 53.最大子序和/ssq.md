@@ -31,6 +31,7 @@ var maxSubArray = function(nums) {
     return max;
 };
 ```
+![](2020-03-30-23-16-27.png)
 
 ### 分治法
 
@@ -52,27 +53,27 @@ var maxSubArray = function(nums) {
     return divide(nums, 0, nums.length-1);
   };
    
-  var divide = function(nums, l, r) {
+  var divide = function(nums, l, r) {//求最大子序和
     if (l === r) {
       return nums[l];
-    }
+    }//当数组元素只有一个的时候 返回
     if (l === r-1) {
       return Math.max(nums[l], Math.max(nums[r], nums[l] + nums[r]));
-    }
+    }//当数组只要两个元素的时候 返回
     
     let mid = parseInt((l + r) / 2);
-    let lmax = divide(nums, l, mid-1);
-    let rmax = divide(nums, mid+1, r);
+    let lmax = divide(nums, l, mid-1);// 子数组左边最大子序和
+    let rmax = divide(nums, mid+1, r);// 子数组右边最大子序和 
     
-    let mmax = nums[mid];  // 从中间开始计算
+    //含中点的最大子序和  
+    let mmax = nums[mid];  // 先看中间这个数
     let sum = mmax; // 用来求和
-    for (let i = mid - 1; i >= l; i--) {
+    for (let i = mid - 1; i >= l; i--) {//往左边累加
       sum += nums[i];
       mmax = Math.max(mmax, sum);
     }
-    
     sum = mmax;
-    for (let i = mid + 1; i <= r; i++) {
+    for (let i = mid + 1; i <= r; i++) {//往右边累加
       sum += nums[i];
       mmax = Math.max(mmax, sum);
     }
@@ -93,10 +94,24 @@ var maxSubArray = function(nums) {
     max = nums[0];
     sum = nums[0];
     for(let i=1;i<nums.length;i++){
-        sum = sum + nums[i] >nums[i] ? sum+nums[i] : nums[i];
+        sum = sum + nums[i] > nums[i] ? sum+nums[i] : nums[i];
         max = Math.max(max,sum)
     }
     return max;
 };
 ```
 
+
+
+设最后一个非叶子节点为i
+
+假如i只有一个叶子
+2*i+1 = len - 1
+i=len/2-1
+
+假如i有两个叶子
+2*i+2 = len - 1
+  0
+1   2
+i=(len-3)/
+i= len/2 -1
