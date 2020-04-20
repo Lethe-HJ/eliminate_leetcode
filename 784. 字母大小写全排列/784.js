@@ -43,7 +43,7 @@ var letterCasePermutation = function (S) {
         //     let new_ascii = ascii <= 90 ? ascii + 32 : ascii - 32;
         //     res[i] = chg_str(res[i], alph_index, String.fromCharCode(new_ascii));
         // }
-        for (let i = 0, len = res.length; i < len; i++) {//{从中点往后走}
+        for (let i = 0, len = res.length; i < len; i++) {
             let ascii = res[i][alph_index].charCodeAt();
             let new_ascii = ascii <= 90 ? ascii + 32 : ascii - 32;
             res.push(chg_str(res[i], alph_index, String.fromCharCode(new_ascii)));
