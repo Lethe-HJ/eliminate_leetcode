@@ -31,6 +31,19 @@ var repeatedNTimes = function (A) {
     }
 };
 
+
+
+var repeatedNTimes = function (A) {
+    if (A[0] == A[2]) return A[0];
+    if (A[1] == A[3]) return A[1];
+    for (let i = 0; i < A.length - 1; i++) {
+        if (A[i] == A[i + 1])
+            return A[i];
+    }
+    if (A.length == 4 && A[0] == A[A.length - 1]) return A[0];
+};
+
+
 let test = [
     [1, 2, 3, 3],
     [2, 1, 2, 5, 3, 2],
