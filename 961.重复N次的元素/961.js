@@ -1,6 +1,6 @@
 // 961. 重复 N 次的元素
 // 在大小为 2N 的数组 A 中有 N+1 个不同的元素，其中有一个元素重复了 N 次。
-// 返回重复了 N 次的那个元素。
+// 返回重复了 N 次的那个元素。有且只有一种元素重复 ,这个元素就是你想要的
 // 示例 1：
 // 输入：[1,2,3,3]
 // 输出：3
@@ -21,7 +21,7 @@
  */
 var repeatedNTimes = function (A) {
     let hashmap = new Map();
-    for (let i = 0; i < A.length; i++) {
+    for (let i = 0; i < A.length; i++) {//n
         let count = hashmap.get(A[i]);
         if (count == 1) {
             return A[i];
@@ -31,7 +31,11 @@ var repeatedNTimes = function (A) {
     }
 };
 
-
+相邻
+// 1,2,3,3
+间隔1个
+// 1,3,2,3,5,3
+// 3,1,3,1  length==4 
 
 var repeatedNTimes = function (A) {
     if (A[0] == A[2]) return A[0];
@@ -40,7 +44,7 @@ var repeatedNTimes = function (A) {
         if (A[i] == A[i + 1])
             return A[i];
     }
-    if (A.length == 4 && A[0] == A[A.length - 1]) return A[0];
+    if (A.length == 4 && A[0] == A[3]) return A[0];
 };
 
 
