@@ -59,6 +59,6 @@ let test = [
     [[4, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10], "bbbcccdddaaa"]
 ]
 
-test.forEach(element => {
+        test.forEach(element => {
     console.log(numberOfLines(element[0], element[1]));
 })
